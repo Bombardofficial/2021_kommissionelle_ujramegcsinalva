@@ -8,7 +8,7 @@ Wizard::Wizard(std::string name)
 {
 	
 	mana = 20;
-	for(int i = 0; i <= 7; i++)
+	for(int i = 0; i < 7; i++)
 	{
 		if(rand() % 2 == 0)
 		{
@@ -31,12 +31,9 @@ Wizard::Wizard(std::string name)
 
 Wizard::~Wizard()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < spells.size(); i++)
 	{
-		for (int j = 0; j < spells.size(); j++)
-		{
-			delete spells[i];
-		}
+		delete spells[i];
 	}
 }
 
@@ -51,14 +48,16 @@ void Wizard::castSpell(Wizard* target)
 		throw std::invalid_argument("Pointer was nullpointer");
 	}
 	
-	spells[0]->cast(target); // itt volt a 0 helyett spells.size()
-	spells.erase(spells.begin());
+	spells[spells.size()-1]->cast(target); // itt volt a 0 helyett spells.size()
 	
+	
+	
+	spells.pop_back();
 }
 
 bool Wizard::spellsLeft()
 {
-	if(spells.size() > 0)
+	if(this->spells.size() > 0)
 	{
 		return true;
 	}

@@ -9,46 +9,48 @@
 
 int main()
 {
-    srand((unsigned int)time(NULL)); //Initializing random seed
+    srand(time(NULL)); //Initializing random seed
 
     Wizard wizOne = Wizard("Xardas"); //Creating the wizards
     Wizard wizTwo = Wizard("Pyrokar");
-
-    for (int i = 0; i <= wizOne.spells.size(); ++i)
-        std::cout << "Value of vector at " << i << " is " << wizOne.spells[i] << std::endl;
-    /*while (wizOne.spellsLeft() || wizTwo.spellsLeft())
+	
+    while (wizOne.spellsLeft() || wizTwo.spellsLeft())
     {//Casting spells until no spells are left
+        
         if (wizOne.spellsLeft()) {
 			
             try {
-                if (wizOne.spells[0]->getType() == 1) {
+                if (wizOne.spells[wizOne.spells.size() - 1]->getType() == 1) {
                     wizOne.castSpell(&wizTwo);
                 }
                 else {
 					wizOne.castSpell(&wizOne);
                 }
-                
+                std::cout << "Spell has been casted by wizOne" << std::endl;
+                std::cout << "Remaining spells:" << wizOne.spells.size() << std::endl;
             }
-            catch (...) {
+            catch (std::invalid_argument& err) {
                 std::cerr << "invalid argument." << std::endl;
             }
         }
            
-        if (wizTwo.spellsLeft()){
-			
+        if (wizTwo.spellsLeft()) {
+            
             try {
-                if (wizTwo.spells[0]->getType() == 1) {
+                if (wizTwo.spells[wizTwo.spells.size() - 1]->getType() == 1) {
                     wizTwo.castSpell(&wizOne);
                 }
                 else {
                     wizTwo.castSpell(&wizTwo);
                 }
+				std::cout << "Spell has been casted by wizTwo" << std::endl;
+                std::cout << "Remaining spells:" << wizTwo.spells.size() << std::endl;
             }
-            catch (...) {
+            catch (std::invalid_argument& err) {
                 std::cerr << "invalid argument." << std::endl;
             }
         } 
-    }*/
+    }
 
     wizOne.print(); //Print final state
     wizTwo.print();

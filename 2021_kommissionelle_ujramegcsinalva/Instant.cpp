@@ -18,8 +18,10 @@ void Instant::cast(Wizard* target)
 {
 	if(this->type == damage) {
 		target->mana -= this->power;
+		
 	}
 	else {
 		target->mana += this->power;
 	}
+	
 }

@@ -15,14 +15,17 @@ Sorcery::Sorcery() : Spell(type)
 void Sorcery::cast(Wizard* target)
 {
 	if (this->type == debuff) {
-		target->spells.erase(target->spells.end());
+		target->spells.erase(target->spells.begin());
+		
 	}
 	else {
 		if(target->spells.size() < 7) {
 			if (rand() % 2 == 0) {
+	
 				target->spells.push_back(new Instant());
 			}
 			else {
+				
 				target->spells.push_back(new Sorcery());
 			}
 			
