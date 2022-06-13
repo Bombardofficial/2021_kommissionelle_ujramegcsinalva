@@ -51,7 +51,7 @@ void Wizard::castSpell(Wizard* target)
 		throw std::invalid_argument("Pointer was nullpointer");
 	}
 	
-	spells[0]->cast(target);
+	spells[0]->cast(target); // itt volt a 0 helyett spells.size()
 	spells.erase(spells.begin());
 	
 }
