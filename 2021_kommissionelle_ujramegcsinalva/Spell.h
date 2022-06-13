@@ -1,13 +1,14 @@
 #ifndef SPELL_H
 #define SPELL_H
 
-#include "Wizard.h"
+//#include "Wizard.h"
 
 class Wizard;
 
 class Spell
 {
 public:
+
     Spell(int type) : type(type) {};
     virtual ~Spell();
     int getType();

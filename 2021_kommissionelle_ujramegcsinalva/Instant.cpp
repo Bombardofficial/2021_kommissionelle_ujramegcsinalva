@@ -1,4 +1,5 @@
 #include "Instant.h"
+#include "Wizard.h"
 #include <iostream>
 
 Instant::Instant() : Spell(type) {

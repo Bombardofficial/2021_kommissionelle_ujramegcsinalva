@@ -1,13 +1,6 @@
 #include "Spell.h"
 
-Spell::Spell(int type)
-{
-    this->type = type;
-}
-
-Spell::~Spell() {
-	
-}
+Spell::~Spell() {}
 
 int Spell::getType()
 {

@@ -2,8 +2,7 @@
 #include <string>
 #include <vector>
 #include "Spell.h"
-#include "Instant.h"
-#include "Sorcery.h"
+
 class Wizard
 {
 public:
@@ -21,8 +20,8 @@ public:
 	int mana;
 	
 	//Spell* spells[7];
-	std::vector<Spell*> spells;
 	
+	std::vector<Spell*> spells;
 private:
 	
 };

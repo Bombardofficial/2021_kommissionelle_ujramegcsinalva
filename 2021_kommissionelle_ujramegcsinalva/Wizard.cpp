@@ -1,4 +1,6 @@
 #include "Wizard.h"
+#include "Instant.h"
+#include "Sorcery.h"
 #include <iostream>
 using namespace std;
 
@@ -6,7 +8,7 @@ Wizard::Wizard(std::string name)
 {
 	
 	mana = 20;
-	for(int i = 0; i < 7; i++)
+	for(int i = 0; i <= 7; i++)
 	{
 		if(rand() % 2 == 0)
 		{
@@ -49,8 +51,8 @@ void Wizard::castSpell(Wizard* target)
 		throw std::invalid_argument("Pointer was nullpointer");
 	}
 	
-	spells[spells.size()]->cast(target);
-	spells.erase(spells.end());
+	spells[0]->cast(target);
+	spells.erase(spells.begin());
 	
 }
 

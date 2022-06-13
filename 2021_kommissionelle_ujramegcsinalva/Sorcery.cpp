@@ -1,4 +1,6 @@
 #include "Sorcery.h"
+#include "Instant.h"
+#include "Wizard.h"
 #include <iostream>
 Sorcery::Sorcery() : Spell(type)
 {
@@ -13,7 +15,7 @@ Sorcery::Sorcery() : Spell(type)
 void Sorcery::cast(Wizard* target)
 {
 	if (this->type == debuff) {
-		target->spells.erase(target->spells.begin());
+		target->spells.erase(target->spells.end());
 	}
 	else {
 		if(target->spells.size() < 7) {

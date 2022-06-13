@@ -6,19 +6,22 @@
 #include "Instant.h"
 #include "Sorcery.h"
 #include <exception>
+
 int main()
 {
-    srand(time(NULL)); //Initializing random seed
+    srand((unsigned int)time(NULL)); //Initializing random seed
 
     Wizard wizOne = Wizard("Xardas"); //Creating the wizards
     Wizard wizTwo = Wizard("Pyrokar");
 
-    while (wizOne.spellsLeft() || wizTwo.spellsLeft())
+    for (int i = 0; i <= wizOne.spells.size(); ++i)
+        std::cout << "Value of vector at " << i << " is " << wizOne.spells[i] << std::endl;
+    /*while (wizOne.spellsLeft() || wizTwo.spellsLeft())
     {//Casting spells until no spells are left
         if (wizOne.spellsLeft()) {
 			
             try {
-                if (wizOne.spells[wizOne.spells.size()]->getType() == 1) {
+                if (wizOne.spells[0]->getType() == 1) {
                     wizOne.castSpell(&wizTwo);
                 }
                 else {
@@ -26,7 +29,7 @@ int main()
                 }
                 
             }
-            catch (std::invalid_argument& err) {
+            catch (...) {
                 std::cerr << "invalid argument." << std::endl;
             }
         }
@@ -34,18 +37,18 @@ int main()
         if (wizTwo.spellsLeft()){
 			
             try {
-                if (wizTwo.spells[wizTwo.spells.size()]->getType() == 1) {
+                if (wizTwo.spells[0]->getType() == 1) {
                     wizTwo.castSpell(&wizOne);
                 }
                 else {
                     wizTwo.castSpell(&wizTwo);
                 }
             }
-            catch (std::invalid_argument& err) {
+            catch (...) {
                 std::cerr << "invalid argument." << std::endl;
             }
         } 
-    }
+    }*/
 
     wizOne.print(); //Print final state
     wizTwo.print();
